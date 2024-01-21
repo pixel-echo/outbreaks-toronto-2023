@@ -23,7 +23,7 @@ while (i <= 8) {
   datastore_resources <- filter(resources, tolower(format) %in% 'csv')
   data <- filter(datastore_resources, row_number()==i) %>% get_resource()
   
-  file_name <- sprintf("inputs/data/raw_data_%d.csv", year)
+  file_name <- sprintf("inputs/raw_data/raw_data_%d.csv", year)
   write_csv(data, file_name)
   year <- year - 1
   i <- i + 1
