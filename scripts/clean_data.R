@@ -11,23 +11,26 @@ library(tidyverse)
 library(janitor)
 
 # read in data
-raw_data_2023 <- read_csv("inputs/data/raw_data_2023.csv")
-raw_data_2022 <- read_csv("inputs/data/raw_data_2022.csv")
-raw_data_2021 <- read_csv("inputs/data/raw_data_2021.csv")
-raw_data_2020 <- read_csv("inputs/data/raw_data_2020.csv")
-raw_data_2019 <- read_csv("inputs/data/raw_data_2019.csv")
-raw_data_2018 <- read_csv("inputs/data/raw_data_2018.csv")
-raw_data_2017 <- read_csv("inputs/data/raw_data_2017.csv")
+raw_data_2023 <- read_csv("inputs/raw_data/raw_data_2023.csv")
+raw_data_2022 <- read_csv("inputs/raw_data/raw_data_2022.csv")
+raw_data_2021 <- read_csv("inputs/raw_data/raw_data_2021.csv")
+raw_data_2020 <- read_csv("inputs/raw_data/raw_data_2020.csv")
+raw_data_2019 <- read_csv("inputs/raw_data/raw_data_2019.csv")
+raw_data_2018 <- read_csv("inputs/raw_data/raw_data_2018.csv")
+raw_data_2017 <- read_csv("inputs/raw_data/raw_data_2017.csv")
 
 # clean variable names
-raw_data_2023 <- clean_names(raw_data_2023)
-raw_data_2022 <- clean_names(raw_data_2022)
-raw_data_2021 <- clean_names(raw_data_2021)
-raw_data_2020 <- clean_names(raw_data_2020)
-raw_data_2019 <- clean_names(raw_data_2019)
-raw_data_2018 <- clean_names(raw_data_2018)
-raw_data_2017 <- clean_names(raw_data_2017)
+clean_data_2023 <- clean_names(raw_data_2023)
+clean_data_2022 <- clean_names(raw_data_2022)
+clean_data_2021 <- clean_names(raw_data_2021)
+clean_data_2020 <- clean_names(raw_data_2020)
+clean_data_2019 <- clean_names(raw_data_2019)
+clean_data_2018 <- clean_names(raw_data_2018)
+clean_data_2017 <- clean_names(raw_data_2017)
 
 # merge data frames
-raw_data <- rbind(raw_data_2023, raw_data_2022, raw_data_2021, raw_data_2020,
-                  raw_data_2019, raw_data_2018, raw_data_2017)
+clean_data <- rbind(clean_data_2023, clean_data_2022, clean_data_2021, clean_data_2020,
+                  clean_data_2019, clean_data_2018, clean_data_2017)
+
+# create a csv of cleaned data. 
+write_csv(clean_data, "inputs/clean_data/clean_data.csv")
