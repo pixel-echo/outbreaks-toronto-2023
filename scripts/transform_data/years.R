@@ -1,10 +1,13 @@
 #### Preamble ####
-# Purpose: Transform cleaned data to a usable csv file with the variables year and causative_agent. 
+# Purpose: Transform clean_data.csv to a usable csv file with the variables year and causative_agent. 
 # Author: Tara Chakkithara
 # Date: 20 January 2024
 # Contact: tara.chakkithara@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: Install R packages tidyverse and janitor.
+# Pre-requisites: R package tidyverse and clean_data.csv
+
+#### Workspace Setup ####
+library(tidyverse)
 
 data <- read_csv("inputs/clean_data/clean_data.csv")
 
