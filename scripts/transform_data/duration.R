@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Transform clean_data.csv to a usable csv file with the variables institution_type and causative_agent. 
+# Purpose: Transform clean_data.csv to a usable csv file with the variables duration and causative_agent. 
 # Author: Tara Chakkithara
 # Date: 20 January 2024
 # Contact: tara.chakkithara@mail.utoronto.ca
@@ -7,23 +7,20 @@
 # Pre-requisites: R package tidyverse and clean_data.csv
 
 #### Workspace Setup ####
+
 library(tidyverse)
 
 # read the data
 data <- read_csv("inputs/clean_data/clean_data.csv")
 
-
-# rename institution types to be more readable
+# find the duration of each non active outbreak
 data <- data |>
-  select(outbreak_setting, causative_agent_1) |>
-  rename(institution_type = outbreak_setting, causative_agent = causative_agent_1) |>
+  subset(active == "N") |>
   mutate(
-    institution_type = case_when(
-      institution_type == "Shelter" ~ "Homeless Shelter",
-      str_detect(institution_type, "Hospital") ~ substring(institution_type, 10),
-      TRUE ~ institution_type
-    )
-  )
+    duration = date_declared_over - date_outbreak_began
+  ) |>
+  select(duration, causative_agent_1) |>
+  rename(causative_agent = causative_agent_1)
 
 # group different strains of causative agents together
 data <- data |>
@@ -46,5 +43,5 @@ data <- data |>
     )
   )
 
-# create institution_type.csv
-write_csv(data, "outputs/data/institution_type.csv")
+# create mean_duration.csv
+write_csv(data, "outputs/data/duration.csv")
