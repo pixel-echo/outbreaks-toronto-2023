@@ -42,6 +42,11 @@ data <- data |>
       TRUE ~ causative_agent
     )
   )
+data <- data |>
+  separate_longer_delim(causative_agent, ",") |>
+  mutate(
+    causative_agent = str_trim(causative_agent)
+  )
 
 # create mean_duration.csv
 write_csv(data, "outputs/data/duration.csv")

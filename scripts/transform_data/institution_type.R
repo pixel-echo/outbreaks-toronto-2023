@@ -46,5 +46,11 @@ data <- data |>
     )
   )
 
+data <- data |>
+  separate_longer_delim(causative_agent, ",") |>
+  mutate(
+    causative_agent = str_trim(causative_agent)
+  )
+
 # create institution_type.csv
 write_csv(data, "outputs/data/institution_type.csv")

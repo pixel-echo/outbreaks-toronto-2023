@@ -4033,7 +4033,8 @@ duration,causative_agent
 15,RSV
 3,Rhinovirus
 15,Influenza
-23,"Rhinovirus, Coronavirus"
+23,Rhinovirus
+23,Coronavirus
 16,Influenza
 10,Rhinovirus
 14,Coronavirus

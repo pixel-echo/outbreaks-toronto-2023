@@ -4073,7 +4073,8 @@ Retirement Home,Influenza
 LTCH,RSV
 Chronic Care,Rhinovirus
 Retirement Home,Influenza
-LTCH,"Rhinovirus, Coronavirus"
+LTCH,Rhinovirus
+LTCH,Coronavirus
 LTCH,Influenza
 LTCH,Rhinovirus
 LTCH,Coronavirus
