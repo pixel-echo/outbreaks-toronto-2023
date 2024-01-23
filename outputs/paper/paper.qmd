@@ -1,0 +1,49 @@
+---
+title: "Infectious Outbreak Trends in Toronto Healthcare Facilities"
+subtitle: "An Investigation into Reported Outbreaks from 2017 to 2023"
+author: "Tara Chakkithara"
+abstract-title: Abstract
+abstract: > 
+
+pdf-engine: pdflatex
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+include: false
+warning: false
+message: false
+---
+
+```{r}
+
+
+library(tidyverse)
+```
+
+```{r}
+
+#| include: false
+#| warning: false
+#| message: false
+data <- read_csv(here::here("outputs/data/years.csv"))
+
+data |>
+  ggplot() +
+  geom_bar(
+    aes(x = year)
+  )
+
+data <- read_csv(here::here("outputs/data/months.csv"))
+data |>
+  ggplot() +
+  geom_bar(aes(x = month))
+  
+```
+
+
+
+
